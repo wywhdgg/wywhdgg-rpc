@@ -37,7 +37,7 @@ public class NettyNetClient implements NetClient {
                 SendHandler sendHandler = new SendHandler(data);
                 new Thread(()->{
                     try {
-                        System.out.println(Thread.currentThread().getName()+" 启动netty");
+                        log.info(Thread.currentThread().getName()+" 启动netty");
                         new nettyConnecter().connect(addInfoArray[0], Integer.valueOf(addInfoArray[1]), sendHandler);
                     } catch (NumberFormatException e) {
                         e.printStackTrace();

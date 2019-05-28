@@ -49,7 +49,6 @@ public class JsonMessageProtocol implements MessageProtocol {
         response.setHeaders(rsp.getHeaders());
         response.setStatus(rsp.getStatus());
         response.setRetunResult(rsp.getRetunResult());
-        response.setError(rsp.getError());
         return JSON.toJSONBytes(response);
     }
 

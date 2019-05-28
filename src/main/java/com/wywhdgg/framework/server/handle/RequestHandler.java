@@ -8,6 +8,7 @@ import com.wywhdgg.framework.server.register.ServiceObject;
 import com.wywhdgg.framework.server.register.ServiceRegister;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import java.lang.reflect.InvocationTargetException;
@@ -18,6 +19,7 @@ import java.lang.reflect.Method;
  * @date: 2019/5/27
  * @Description:
  */
+@Sharable
 public class RequestHandler extends ChannelInboundHandlerAdapter {
     private MessageProtocol protocol;
 

@@ -24,7 +24,7 @@ public class RpcBootstrap {
 
     public void start(String packName) {
         Map<String, Object> services = loader.getService(packName);
-        log.info("扫描到实现类={}", services);
+        log.info("=====================扫描到实现类={}", services);
 
         services.forEach((k, v) -> {
             Class<?> interf = null;

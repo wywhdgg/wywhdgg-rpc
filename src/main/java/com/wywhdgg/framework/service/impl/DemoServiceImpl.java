@@ -1,6 +1,7 @@
-package com.wywhdgg.framework.service;
+package com.wywhdgg.framework.service.impl;
 
-import com.wywhdgg.rpc.simple.annotation.Service;
+import com.wywhdgg.framework.annotation.Service;
+import com.wywhdgg.framework.service.DemoService;
 
 /**
  * @author: dongzhb

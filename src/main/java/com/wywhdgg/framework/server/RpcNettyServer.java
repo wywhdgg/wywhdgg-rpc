@@ -13,12 +13,14 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import java.io.Closeable;
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author: dongzhb
  * @date: 2019/5/27
  * @Description:
  */
+@Slf4j
 public class RpcNettyServer implements Closeable {
 
 
@@ -63,7 +65,7 @@ public class RpcNettyServer implements Closeable {
                 .childOption(ChannelOption.SO_KEEPALIVE, true);
             // 异步的绑定服务器，我们调用sync()方法来执行同步，直到绑定完成
             ChannelFuture future = bootstrap.bind().sync();
-            System.out.println("完成服务端端口绑定与启动");
+            log.info("完成服务端端口绑定与启动");
             channel = future.channel();
             // 获取该Channel的CloseFuture，并且阻塞当前线程直到它完成
             future.channel().closeFuture().sync();

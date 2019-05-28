@@ -7,12 +7,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author: dongzhb
  * @date: 2019/5/27
  * @Description:
  */
+@Slf4j
 public class ServiceLoader {
 
 
@@ -26,6 +28,7 @@ public class ServiceLoader {
             Map<String, Object> services = new HashMap<String, Object>();
             // 获取所有服务类
             String[] clazzes = clazz.split(",");
+            log.info("getService classes={}",clazzes);
             List<Class<?>> classes = new ArrayList<Class<?>>();
             for(String cl : clazzes){
                 List<Class<?>> classList = getClasses(cl);
@@ -87,6 +90,7 @@ public class ServiceLoader {
         } else{
             throw new ClassNotFoundException(pckgname + "不是一个有效的包名");
         }
+        log.info("classes={}",classes);
         return classes;
     }
 

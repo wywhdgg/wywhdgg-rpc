@@ -23,8 +23,7 @@ import org.springframework.beans.factory.annotation.Value;
 @Slf4j
 public class ZookeeperExportServiceRegister extends DefaultServiceRegister implements ServiceRegister {
     private ZkClient client;
-    @Value("${zk.root.path}")
-    private String centerRootPath;
+    private String centerRootPath="/wywhdggRpc-framework";
 
     public ZookeeperExportServiceRegister() {
         String addr = PropertiesUtils.getProperties("zk.address");

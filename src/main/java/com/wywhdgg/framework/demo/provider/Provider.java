@@ -15,7 +15,7 @@ public class Provider {
      */
     public static void main(String[] args) throws Exception {
         RpcBootstrap bootstrap = new RpcBootstrap();
-        bootstrap.start("com.wywhdgg.framework.demo");
+        bootstrap.start("com.wywhdgg.framework.service.impl");
         System.in.read(); // 按任意键退出
     }
 }

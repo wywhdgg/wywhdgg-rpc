@@ -76,4 +76,16 @@ public class ClientStubInvocationHandler implements InvocationHandler {
     public void setNetClient(NetClient netClient) {
         this.netClient = netClient;
     }
+
+    public ServiceInfoDiscoverer getSid() {
+        return sid;
+    }
+
+    public Map<String, MessageProtocol> getSupportMessageProtocols() {
+        return supportMessageProtocols;
+    }
+
+    public NetClient getNetClient() {
+        return netClient;
+    }
 }
