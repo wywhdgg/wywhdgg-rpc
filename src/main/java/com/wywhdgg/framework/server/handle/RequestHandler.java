@@ -13,12 +13,14 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author: dongzhb
  * @date: 2019/5/27
  * @Description:
  */
+@Slf4j
 @Sharable
 public class RequestHandler extends ChannelInboundHandlerAdapter {
     private MessageProtocol protocol;
@@ -27,17 +29,17 @@ public class RequestHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("激活");
+        log.info("channel is active");
     }
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("服务端收到消息："+msg);
+        log.info("server receives a message:{}",msg);
         ByteBuf msgBuf = (ByteBuf) msg;
         byte[] req = new byte[msgBuf.readableBytes()];
         msgBuf.readBytes(req);
         byte[] res = handleRequest(req);
-        System.out.println("发送响应："+msg);
+        log.info("send response:{}"+msg);
         ByteBuf respBuf = Unpooled.buffer(res.length);
         respBuf.writeBytes(res);
         ctx.write(respBuf);
@@ -52,7 +54,7 @@ public class RequestHandler extends ChannelInboundHandlerAdapter {
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         // Close the connection when an exception is raised.
         cause.printStackTrace();
-        System.err.println("发生异常："+cause.getMessage());
+        log.info("happen exception:{}",cause.getMessage());
         ctx.close();
     }
 

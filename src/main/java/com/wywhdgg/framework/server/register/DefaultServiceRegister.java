@@ -17,7 +17,7 @@ public class DefaultServiceRegister implements ServiceRegister {
     @Override
     public void register(ServiceObject so, String protocolName, int port) {
         if (so == null) {
-            throw new IllegalArgumentException("params is empty");
+            throw new IllegalArgumentException("register params is empty");
         }
         serviceMap.put(so.getName(), so);
     }

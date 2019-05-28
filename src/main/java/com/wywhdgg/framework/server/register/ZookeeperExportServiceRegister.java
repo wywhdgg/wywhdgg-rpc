@@ -75,8 +75,10 @@ public class ZookeeperExportServiceRegister extends DefaultServiceRegister imple
         ServiceInfo soInf = new ServiceInfo();
         try {
             String host = InetAddress.getLocalHost().getHostAddress();
-            String address = host + ":" + port;
-            soInf.addAddress(address);
+            StringBuffer sb = new StringBuffer(host);
+            sb.append(":");
+            sb.append( port);
+            soInf.addAddress(sb.toString());
             soInf.setName(so.getInterf().getName());
             soInf.setProtocol(protocolName);
             regist(soInf);
