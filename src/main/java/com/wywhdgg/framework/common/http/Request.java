@@ -22,7 +22,7 @@ public class Request implements Serializable {
     private String method;
     private Map<String, String> headers = new HashMap<String, String>();
     /** 请求方法的参数类型 */
-    private Class<?>[] prameterTypes;
+    private Class<?>[] parameterTypes;
     /** 请求的参数值 */
     private Object[] parameters;
 }

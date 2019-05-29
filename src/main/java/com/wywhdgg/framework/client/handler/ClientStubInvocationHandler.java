@@ -42,7 +42,7 @@ public class ClientStubInvocationHandler implements InvocationHandler {
         Request req = new Request();
         req.setServiceName(sinfo.getName());
         req.setMethod(method.getName());
-        req.setPrameterTypes(method.getParameterTypes());
+        req.setParameterTypes(method.getParameterTypes());
         req.setParameters(args);
 
         // 3、协议层编组
@@ -62,7 +62,7 @@ public class ClientStubInvocationHandler implements InvocationHandler {
             throw rsp.getException();
         }
 
-        return rsp.getRetunResult();
+        return rsp.getReturnValue();
     }
 
     public void setSid(ServiceInfoDiscoverer sid) {

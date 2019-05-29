@@ -21,7 +21,7 @@ public class Response implements Serializable {
     private  Status status;
     private Map<String,String> headers = new HashMap<>();
     /**响应的内容或结果*/
-    private Object retunResult;
+    private Object returnValue;
     /**异常*/
     private Exception exception;
 

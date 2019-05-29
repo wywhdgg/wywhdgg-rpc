@@ -16,7 +16,7 @@ public class JsonMessageProtocol implements MessageProtocol {
         temp.setServiceName(req.getServiceName());
         temp.setMethod(req.getMethod());
         temp.setHeaders(req.getHeaders());
-        temp.setPrameterTypes(req.getPrameterTypes());
+        temp.setParameterTypes(req.getParameterTypes());
         if (req.getParameters() != null) {
             Object[] params = req.getParameters();
             Object[] serizeParmas = new Object[params.length];
@@ -48,7 +48,7 @@ public class JsonMessageProtocol implements MessageProtocol {
         Response response = new Response();
         response.setHeaders(rsp.getHeaders());
         response.setStatus(rsp.getStatus());
-        response.setRetunResult(rsp.getRetunResult());
+        response.setReturnValue(rsp.getReturnValue());
         return JSON.toJSONBytes(response);
     }
 

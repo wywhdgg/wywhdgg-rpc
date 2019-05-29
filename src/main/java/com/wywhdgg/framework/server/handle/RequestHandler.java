@@ -72,10 +72,10 @@ public class RequestHandler extends ChannelInboundHandlerAdapter {
         } else {
             // 3、反射调用对应的过程方法
             try {
-                Method m = so.getInterf().getMethod(req.getMethod(), req.getPrameterTypes());
+                Method m = so.getInterf().getMethod(req.getMethod(), req.getParameterTypes());
                 Object returnValue = m.invoke(so.getObj(), req.getParameters());
                 rsp = new Response(Status.SUCCESS);
-                rsp.setRetunResult(returnValue);
+                rsp.setReturnValue(returnValue);
             } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException e) {
                 rsp = new Response(Status.ERROR);

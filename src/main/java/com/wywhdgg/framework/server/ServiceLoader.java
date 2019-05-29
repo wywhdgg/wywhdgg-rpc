@@ -28,7 +28,6 @@ public class ServiceLoader {
             Map<String, Object> services = new HashMap<String, Object>();
             // 获取所有服务类
             String[] clazzes = clazz.split(",");
-            log.info("getService classes={}",clazzes);
             List<Class<?>> classes = new ArrayList<Class<?>>();
             for(String cl : clazzes){
                 List<Class<?>> classList = getClasses(cl);
@@ -90,7 +89,6 @@ public class ServiceLoader {
         } else{
             throw new ClassNotFoundException(pckgname + "不是一个有效的包名");
         }
-        log.info("classes={}",classes);
         return classes;
     }
 
